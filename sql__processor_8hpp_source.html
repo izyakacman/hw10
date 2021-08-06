@@ -68,19 +68,28 @@ $(function() {
 <a href="sql__processor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="class_sql_processor.html">SqlProcessor</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_sql_processor.html#a4b9749ecb6427d6d4e11d53c5e0f4dff">   12</a></span>&#160;    <a class="code" href="class_sql_processor.html#a4b9749ecb6427d6d4e11d53c5e0f4dff">SqlProcessor</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_sql_processor.html#ab78de1b4bca441e0469538293e130487">   13</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_sql_processor.html#ab78de1b4bca441e0469538293e130487">~SqlProcessor</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sql_processor.html#a9545502958bcf609227dce3af7ac7db1">ProcessRequest</a>(<span class="keyword">const</span> std::string&amp; request);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="class_sql_processor.html">SqlProcessor</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_sql_processor.html#a4b9749ecb6427d6d4e11d53c5e0f4dff">   13</a></span>&#160;    <a class="code" href="class_sql_processor.html#a4b9749ecb6427d6d4e11d53c5e0f4dff">SqlProcessor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_sql_processor.html#ab78de1b4bca441e0469538293e130487">   14</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_sql_processor.html#ab78de1b4bca441e0469538293e130487">~SqlProcessor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sql_processor.html#a9545502958bcf609227dce3af7ac7db1">ProcessRequest</a>(<span class="keyword">const</span> std::string&amp; request);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;     std::map&lt;int, std::string&gt; table_a_;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;     std::map&lt;int, std::string&gt; table_b_;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;     <span class="keyword">static</span> constexpr <span class="keyword">auto</span> ok_ = <span class="stringliteral">&quot;OK&quot;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;     <span class="keyword">static</span> constexpr <span class="keyword">auto</span> err_ = <span class="stringliteral">&quot;ERR&quot;</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
 <div class="ttc" id="aclass_sql_processor_html"><div class="ttname"><a href="class_sql_processor.html">SqlProcessor</a></div><div class="ttdef"><b>Definition:</b> commands_processor.hpp:54</div></div>
 <div class="ttc" id="aclass_sql_processor_html_a4b9749ecb6427d6d4e11d53c5e0f4dff"><div class="ttname"><a href="class_sql_processor.html#a4b9749ecb6427d6d4e11d53c5e0f4dff">SqlProcessor::SqlProcessor</a></div><div class="ttdeci">SqlProcessor()=default</div></div>
-<div class="ttc" id="aclass_sql_processor_html_a9545502958bcf609227dce3af7ac7db1"><div class="ttname"><a href="class_sql_processor.html#a9545502958bcf609227dce3af7ac7db1">SqlProcessor::ProcessRequest</a></div><div class="ttdeci">void ProcessRequest(const std::string &amp;request)</div><div class="ttdef"><b>Definition:</b> sql_processor.cpp:3</div></div>
+<div class="ttc" id="aclass_sql_processor_html_a9545502958bcf609227dce3af7ac7db1"><div class="ttname"><a href="class_sql_processor.html#a9545502958bcf609227dce3af7ac7db1">SqlProcessor::ProcessRequest</a></div><div class="ttdeci">void ProcessRequest(const std::string &amp;request)</div><div class="ttdef"><b>Definition:</b> sql_processor.cpp:6</div></div>
 <div class="ttc" id="aclass_sql_processor_html_ab78de1b4bca441e0469538293e130487"><div class="ttname"><a href="class_sql_processor.html#ab78de1b4bca441e0469538293e130487">SqlProcessor::~SqlProcessor</a></div><div class="ttdeci">virtual ~SqlProcessor()=default</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
