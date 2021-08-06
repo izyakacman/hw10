@@ -7,7 +7,7 @@
 *	@return true - change type of command
 * 
 */
-bool StaticCommandsProcessor::ProcessCommand(const std::string& cmd)
+bool SqlProcessor::ProcessCommand(const std::string& cmd)
 {
 	if (cmd != EndOfFileString)
 	{

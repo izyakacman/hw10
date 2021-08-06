@@ -2,7 +2,8 @@
 #include <string>
 
 #include "server.hpp"
-#include "commands_processor.hpp"
+//#include "commands_processor.hpp"
+#include "sql_processor.hpp"
 
 using namespace std;
 
@@ -16,12 +17,13 @@ int main(int argc, char* argv[])
 
 	try
 	{
-		StaticCommandsProcessor static_cmd_processor{ static_cast<size_t>(atoll(argv[2])) };
+		//SqlProcessor static_cmd_processor{ static_cast<size_t>(atoll(argv[2])) };
+        SqlProcessor sql_processor{};
 
 		boost::asio::io_context io_context;
         std::mutex mutex;
 
-		TcpServer server(io_context, static_cast<uint16_t>(stoi(argv[1])), static_cmd_processor, mutex);
+		TcpServer server(io_context, static_cast<uint16_t>(stoi(argv[1])), sql_processor, mutex);
 
         // Capture SIGINT and SIGTERM to perform a clean shutdown
         boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);

@@ -17,7 +17,7 @@ find_package(Boost COMPONENTS system  REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (join_server "main.cpp" "server.cpp" "commands_processor.cpp" )
+add_executable (join_server "main.cpp" "server.cpp" "sql_processor.cpp" )
 
 target_link_libraries(join_server
         ${Boost_LIBRARIES}

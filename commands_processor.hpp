@@ -50,11 +50,11 @@ private:
 /**
 *	Static commands processor
 */
-class StaticCommandsProcessor : public ICommandsProcessor
+class SqlProcessor : public ICommandsProcessor
 {
 public:
 
-	explicit StaticCommandsProcessor(size_t count) : ICommandsProcessor(count) {}
+	explicit SqlProcessor(size_t count) : ICommandsProcessor(count) {}
 
 	bool ProcessCommand(const std::string& cmd) override;
 };
