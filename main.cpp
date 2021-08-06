@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 {
 	if (argc != 3)
 	{
-		cout << "Usage: bulk_server <port> <commands count>";
+		cout << "Usage: join_server <port>";
 		return -1;
 	}
 
