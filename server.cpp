@@ -8,11 +8,10 @@
 
 namespace ba = boost::asio;
 
-Session::Session(boost::asio::ip::tcp::socket socket, std::mutex& mutex, SqlProcessor& sql_processor) :
+Session::Session(boost::asio::ip::tcp::socket socket, SqlProcessor& sql_processor) :
     socket_(std::move(socket)), 
     data_{},
-    sql_processor_{ sql_processor },
-    mutex_{ mutex }
+    sql_processor_{ sql_processor }
 {
 }
 
@@ -32,17 +31,16 @@ void Session::Read()
             {
                 std::string s{ data_, length };
 
-                sql_processor_.ProcessRequest(s);
+                sql_processor_.ProcessRequest(s, socket_);
 
                 Read();
             }
         });
 }
 
-TcpServer::TcpServer(boost::asio::io_context& io_context, short port, SqlProcessor& sql_processor, std::mutex& mutex) :
+TcpServer::TcpServer(boost::asio::io_context& io_context, short port, SqlProcessor& sql_processor) :
     acceptor_(io_context, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port)), 
-    sql_processor_{ sql_processor },
-    mutex_{ mutex }
+    sql_processor_{ sql_processor }
 {
     Accept();
 }
@@ -54,7 +52,7 @@ void TcpServer::Accept()
         {
             if (!ec)
             {
-                std::make_shared<Session>(std::move(socket), mutex_, sql_processor_)->Start();
+                std::make_shared<Session>(std::move(socket), sql_processor_)->Start();
             }
 
             Accept();

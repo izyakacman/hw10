@@ -10,7 +10,7 @@ class Session : public std::enable_shared_from_this<Session>
 {
 public:
 
-    Session(boost::asio::ip::tcp::socket socket, std::mutex& mutex, SqlProcessor& sql_processor);
+    Session(boost::asio::ip::tcp::socket socket, SqlProcessor& sql_processor);
 
     void Start();
 
@@ -22,14 +22,13 @@ private:
     enum { max_length = 1024 };
     char data_[max_length];
     SqlProcessor& sql_processor_;
-    std::mutex& mutex_;
 };
 
 class TcpServer
 {
 public:
 
-    TcpServer(boost::asio::io_context& io_context, short port, SqlProcessor& sql_processor, std::mutex& mutex);
+    TcpServer(boost::asio::io_context& io_context, short port, SqlProcessor& sql_processor);
 
 private:
 
@@ -37,5 +36,4 @@ private:
 
     boost::asio::ip::tcp::acceptor acceptor_;
     SqlProcessor& sql_processor_;
-    std::mutex& mutex_;
 };

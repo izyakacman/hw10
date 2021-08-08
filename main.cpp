@@ -2,14 +2,13 @@
 #include <string>
 
 #include "server.hpp"
-//#include "commands_processor.hpp"
 #include "sql_processor.hpp"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-	if (argc != 3)
+	if (argc != 2)
 	{
 		cout << "Usage: join_server <port>";
 		return -1;
@@ -17,13 +16,10 @@ int main(int argc, char* argv[])
 
 	try
 	{
-		//SqlProcessor static_cmd_processor{ static_cast<size_t>(atoll(argv[2])) };
-        SqlProcessor sql_processor{};
-
 		boost::asio::io_context io_context;
-        std::mutex mutex;
 
-		TcpServer server(io_context, static_cast<uint16_t>(stoi(argv[1])), sql_processor, mutex);
+        SqlProcessor sql_processor;
+		TcpServer server(io_context, static_cast<uint16_t>(stoi(argv[1])), sql_processor);
 
         // Capture SIGINT and SIGTERM to perform a clean shutdown
         boost::asio::signal_set signals(io_context, SIGINT, SIGTERM);
