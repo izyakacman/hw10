@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['coutwriter_61',['CoutWriter',['../class_cout_writer.html',1,'']]]
+  ['session_39',['Session',['../class_session.html',1,'']]],
+  ['sqlprocessor_40',['SqlProcessor',['../class_sql_processor.html',1,'']]]
 ];
